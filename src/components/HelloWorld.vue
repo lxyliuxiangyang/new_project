@@ -84,11 +84,26 @@
 </template>
 
 <script>
+  import axios from "axios"
 export default {
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  mounted(){
+    this.getlist()
+  },
+  methods:{
+    getlist(){
+      axios.get("/api/index.json").then((res)=>{
+      console.log(res.data.data)
+
+      }).catch(function (err) {
+
+        console.log("失败")
+      })
     }
   }
 }
