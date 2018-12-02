@@ -18,9 +18,13 @@ export default {
     this.getlist()
   },
   methods:{
-    getlist(){
-        axios.get("/api/mock/index.json").then((res)=>{
-      console.log(res.data)
+ getlist(){
+        axios.post("/api/login",{
+     userAccountNumber:"账号",
+     userPassword:"密码"
+
+        }).then((res)=>{
+         console.log(res.data.message)
 
       }).catch(function (err) {
 
